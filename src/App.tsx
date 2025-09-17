@@ -7,7 +7,12 @@ import { Navbar } from "@/components/layout/Navbar";
 import { Footer } from "@/components/layout/Footer";
 import { Home } from "./pages/Home";
 import { Packages } from "./pages/Packages";
+import { PackageDetail } from "./pages/PackageDetail";
 import { Destinations } from "./pages/Destinations";
+import { Transport } from "./pages/Transport";
+import { TransportDetail } from "./pages/TransportDetail";
+import { Blog } from "./pages/Blog";
+import { BlogDetail } from "./pages/BlogDetail";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -24,9 +29,12 @@ const App = () => (
             <Routes>
               <Route path="/" element={<Home />} />
               <Route path="/packages" element={<Packages />} />
+              <Route path="/packages/:id" element={<PackageDetail />} />
               <Route path="/destinations" element={<Destinations />} />
-              <Route path="/transport" element={<div className="pt-16 text-center py-20">Transport page coming soon!</div>} />
-              <Route path="/blog" element={<div className="pt-16 text-center py-20">Blog page coming soon!</div>} />
+              <Route path="/transport" element={<Transport />} />
+              <Route path="/transport/:id" element={<TransportDetail />} />
+              <Route path="/blog" element={<Blog />} />
+              <Route path="/blog/:slug" element={<BlogDetail />} />
               {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
               <Route path="*" element={<NotFound />} />
             </Routes>
