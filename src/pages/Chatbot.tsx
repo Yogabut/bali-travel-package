@@ -4,12 +4,14 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Card } from "@/components/ui/card";
 import { packages } from "@/data/packages";
+import { PackageCard } from "@/components/ui/package-card";
 
 interface Message {
   id: string;
   text: string;
   sender: 'user' | 'bot';
   timestamp: Date;
+  recommendedPackages?: typeof packages;
 }
 
 export const Chatbot = () => {
@@ -40,35 +42,53 @@ export const Chatbot = () => {
     scrollToBottom();
   }, [messages]);
 
-  const generateBotResponse = (userMessage: string): string => {
+  const generateBotResponse = (userMessage: string): { text: string; recommendedPackages: typeof packages } => {
     const lowerMessage = userMessage.toLowerCase();
     
     if (lowerMessage.includes('romantic') || lowerMessage.includes('honeymoon') || lowerMessage.includes('couple')) {
-      const romanticPackage = packages.find(p => p.category === 'Romance');
-      return `Perfect! For a romantic experience, I recommend our "${romanticPackage?.title}". It includes ${romanticPackage?.highlights.slice(0, 2).join(', ')} and costs $${romanticPackage?.price}. Would you like more details about this package?`;
+      const romanticPackages = packages.filter(p => p.category === 'Romance');
+      return {
+        text: `Perfect! For a romantic experience, I recommend checking out these amazing packages below. Each one offers incredible experiences for couples!`,
+        recommendedPackages: romanticPackages
+      };
     }
     
     if (lowerMessage.includes('adventure') || lowerMessage.includes('hiking') || lowerMessage.includes('active')) {
-      const adventurePackage = packages.find(p => p.category === 'Adventure');
-      return `Great choice! Our "${adventurePackage?.title}" is perfect for adventure seekers. You'll enjoy ${adventurePackage?.highlights.slice(0, 2).join(' and ')} starting at $${adventurePackage?.price}. Interested in learning more?`;
+      const adventurePackages = packages.filter(p => p.category === 'Adventure');
+      return {
+        text: `Great choice! Here are our best adventure packages that will get your adrenaline pumping:`,
+        recommendedPackages: adventurePackages
+      };
     }
     
     if (lowerMessage.includes('cultural') || lowerMessage.includes('temple') || lowerMessage.includes('traditional')) {
-      const culturalPackage = packages.find(p => p.category === 'Cultural');
-      return `Wonderful! I recommend our "${culturalPackage?.title}". This package includes ${culturalPackage?.highlights.slice(0, 2).join(' and ')} for just $${culturalPackage?.price}. Would you like to see the full itinerary?`;
+      const culturalPackages = packages.filter(p => p.category === 'Cultural');
+      return {
+        text: `Wonderful! Discover Bali's rich culture and traditions with these amazing packages:`,
+        recommendedPackages: culturalPackages
+      };
     }
     
     if (lowerMessage.includes('price') || lowerMessage.includes('cost') || lowerMessage.includes('budget') || lowerMessage.includes('$')) {
       const budgetOptions = packages.filter(p => p.price < 500);
-      return `Here are our packages under $500: ${budgetOptions.map(p => `"${p.title}" ($${p.price})`).join(', ')}. Which one interests you most?`;
+      return {
+        text: `Here are our best packages under $500 that offer incredible value:`,
+        recommendedPackages: budgetOptions
+      };
     }
     
     if (lowerMessage.includes('hello') || lowerMessage.includes('hi') || lowerMessage.includes('hey')) {
-      return "Hello! I'm here to help you find the perfect Bali vacation package. Are you interested in adventure, romance, culture, or something else?";
+      return {
+        text: "Hello! I'm here to help you find the perfect Bali vacation package. Are you interested in adventure, romance, culture, or something else?",
+        recommendedPackages: []
+      };
     }
     
-    // Default response
-    return `I understand you're interested in "${userMessage}". Let me suggest our most popular packages: ${packages.slice(0, 2).map(p => `"${p.title}" ($${p.price})`).join(' and ')}. Which type of experience appeals to you more?`;
+    // Default response with popular packages
+    return {
+      text: `I understand you're looking for "${userMessage}". Here are some of our most popular packages that might interest you:`,
+      recommendedPackages: packages.slice(0, 3)
+    };
   };
 
   const sendMessage = async () => {
@@ -87,11 +107,13 @@ export const Chatbot = () => {
 
     // Simulate bot thinking time
     setTimeout(() => {
+      const response = generateBotResponse(inputMessage);
       const botResponse: Message = {
         id: (Date.now() + 1).toString(),
-        text: generateBotResponse(inputMessage),
+        text: response.text,
         sender: 'bot',
         timestamp: new Date(),
+        recommendedPackages: response.recommendedPackages
       };
       
       setMessages(prev => [...prev, botResponse]);
@@ -130,36 +152,50 @@ export const Chatbot = () => {
           {/* Messages Area */}
           <div className="flex-1 p-6 overflow-y-auto space-y-4">
             {messages.map((message) => (
-              <div
-                key={message.id}
-                className={`flex items-start space-x-3 ${
-                  message.sender === 'user' ? 'flex-row-reverse space-x-reverse' : ''
-                }`}
-              >
-                <div className={`flex-shrink-0 w-8 h-8 rounded-full flex items-center justify-center ${
-                  message.sender === 'user' 
-                    ? 'bg-primary text-white' 
-                    : 'bg-accent text-white'
-                }`}>
-                  {message.sender === 'user' ? (
-                    <User className="h-4 w-4" />
-                  ) : (
-                    <Bot className="h-4 w-4" />
-                  )}
+              <div key={message.id}>
+                <div
+                  className={`flex items-start space-x-3 ${
+                    message.sender === 'user' ? 'flex-row-reverse space-x-reverse' : ''
+                  }`}
+                >
+                  <div className={`flex-shrink-0 w-8 h-8 rounded-full flex items-center justify-center ${
+                    message.sender === 'user' 
+                      ? 'bg-primary text-white' 
+                      : 'bg-accent text-white'
+                  }`}>
+                    {message.sender === 'user' ? (
+                      <User className="h-4 w-4" />
+                    ) : (
+                      <Bot className="h-4 w-4" />
+                    )}
+                  </div>
+                  
+                  <div className={`max-w-[70%] p-3 rounded-2xl ${
+                    message.sender === 'user'
+                      ? 'bg-primary text-white'
+                      : 'bg-muted text-foreground'
+                  }`}>
+                    <p className="text-sm leading-relaxed">{message.text}</p>
+                    <p className={`text-xs mt-1 ${
+                      message.sender === 'user' ? 'text-white/70' : 'text-muted-foreground'
+                    }`}>
+                      {message.timestamp.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })}
+                    </p>
+                  </div>
                 </div>
                 
-                <div className={`max-w-[70%] p-3 rounded-2xl ${
-                  message.sender === 'user'
-                    ? 'bg-primary text-white'
-                    : 'bg-muted text-foreground'
-                }`}>
-                  <p className="text-sm leading-relaxed">{message.text}</p>
-                  <p className={`text-xs mt-1 ${
-                    message.sender === 'user' ? 'text-white/70' : 'text-muted-foreground'
-                  }`}>
-                    {message.timestamp.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })}
-                  </p>
-                </div>
+                {/* Package Recommendations */}
+                {message.sender === 'bot' && message.recommendedPackages && message.recommendedPackages.length > 0 && (
+                  <div className="ml-11 mt-4 space-y-4">
+                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+                      {message.recommendedPackages.map((pkg) => (
+                        <div key={pkg.id} className="transform scale-95">
+                          <PackageCard {...pkg} />
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+                )}
               </div>
             ))}
             
