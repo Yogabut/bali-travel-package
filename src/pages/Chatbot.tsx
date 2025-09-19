@@ -132,7 +132,7 @@ export const Chatbot = () => {
   };
 
   return (
-    <div className="min-h-screen bg-muted/30 py-8">
+    <div className="min-h-screen bg-muted/30 py-20">
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header */}
         <div className="text-center mb-8">
@@ -148,7 +148,7 @@ export const Chatbot = () => {
         </div>
 
         {/* Chat Container */}
-        <Card className="h-[600px] flex flex-col bg-white shadow-lg">
+        <Card className="h-[700px] flex flex-col bg-white shadow-lg">
           {/* Messages Area */}
           <div className="flex-1 p-6 overflow-y-auto space-y-4">
             {messages.map((message) => (
@@ -186,8 +186,8 @@ export const Chatbot = () => {
                 
                 {/* Package Recommendations */}
                 {message.sender === 'bot' && message.recommendedPackages && message.recommendedPackages.length > 0 && (
-                  <div className="ml-11 mt-4 space-y-4">
-                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+                  <div className="ml-11 mt-4 space-y-2">
+                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-2">
                       {message.recommendedPackages.map((pkg) => (
                         <div key={pkg.id} className="transform scale-95">
                           <PackageCard {...pkg} />

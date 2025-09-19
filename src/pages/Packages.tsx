@@ -4,6 +4,7 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { PackageCard } from "@/components/ui/package-card";
 import { packages } from "@/data/packages";
+import { CTA } from "@/components/Contact/Contact";
 
 export const Packages = () => {
   const [searchTerm, setSearchTerm] = useState("");
@@ -116,21 +117,8 @@ export const Packages = () => {
           )}
         </div>
       </section>
-
-      {/* CTA Section */}
-      <section className="py-16 bg-muted/30">
-        <div className="max-w-4xl mx-auto text-center px-4 sm:px-6 lg:px-8">
-          <h2 className="text-3xl font-bold text-foreground font-poppins mb-4">
-            Can't Find What You're Looking For?
-          </h2>
-          <p className="text-lg text-muted-foreground mb-8">
-            Our travel experts can create a custom package tailored to your specific interests and budget.
-          </p>
-          <Button size="lg" className="bg-primary hover:bg-primary-hover text-white font-poppins">
-            Request Custom Package
-          </Button>
-        </div>
-      </section>
+      <CTA />
+      
     </div>
   );
 };
