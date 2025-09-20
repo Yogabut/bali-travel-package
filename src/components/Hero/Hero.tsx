@@ -26,7 +26,7 @@ export const Hero = () => {
         {/* Content Container */}
         <div className="relative z-10 flex h-full">
             {/* Left Sidebar - Region Selector */}
-            <div className="flex flex-col justify-center items-center w-20 bg-black/20 backdrop-blur-sm">
+            <div className="flex flex-col justify-center items-center w-12 bg-black/20 backdrop-blur-sm">
             {regions.map((region, index) => (
                 <button
                 key={region}

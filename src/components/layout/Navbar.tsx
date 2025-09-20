@@ -23,11 +23,9 @@ export const Navbar = () => {
         <div className="flex items-center justify-between h-16">
           {/* Logo */}
           <Link to="/" className="flex items-center space-x-2">
-            <MapPin className="h-8 w-8 text-primary" />
-            <span className="text-2xl font-bold font-poppins bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">
-              BaliExplorer
-            </span>
+            <img src="/src/assets/teavel.png" alt="Logo" className="w-38 h-36" />
           </Link>
+
 
           {/* Desktop Navigation */}
           <div className="hidden md:block">

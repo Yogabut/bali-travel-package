@@ -1,0 +1,120 @@
+/* Add subtle pattern overlay */
+.contact::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    opacity: 0.03;
+    background-image: radial-gradient(circle at 1px 1px, rgba(255,255,255,0.3) 1px, transparent 0);
+    background-size: 60px 60px;
+    pointer-events: none;
+    z-index: 1;
+}
+
+/* Ensure content is above the pattern */
+.contact > * {
+    position: relative;
+    z-index: 2;
+}
+
+/* Custom form input focus effects */
+.contact input:focus,
+.contact textarea:focus {
+    transform: translateY(-1px);
+    box-shadow: 0 8px 25px rgba(234, 179, 8, 0.15);
+}
+
+/* Custom button hover effects */
+.contact button[type="submit"]:hover {
+    transform: translateY(-2px) scale(1.02);
+    box-shadow: 0 12px 30px rgba(234, 179, 8, 0.3);
+}
+
+/* Smooth transitions for all interactive elements */
+.contact input,
+.contact textarea,
+.contact button {
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Enhanced glass morphism effect for cards */
+.contact [data-aos] > div {
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+}
+
+/* Custom scrollbar for textarea */
+.contact textarea::-webkit-scrollbar {
+    width: 6px;
+}
+
+.contact textarea::-webkit-scrollbar-track {
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 3px;
+}
+
+.contact textarea::-webkit-scrollbar-thumb {
+    background: rgba(87, 238, 221, 0.5);
+    border-radius: 3px;
+}
+
+.contact textarea::-webkit-scrollbar-thumb:hover {
+    background: rgba(87, 238, 221, 0.7);
+}
+
+/* Floating animation for contact info cards */
+@keyframes float {
+    0%, 100% {
+        transform: translateY(0px);
+    }
+    50% {
+        transform: translateY(-5px);
+    }
+}
+
+.contact .grid > div:hover {
+    animation: float 3s ease-in-out infinite;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .contact {
+        padding: 1rem;
+    }
+    
+    .contact h2 {
+        font-size: 2.5rem;
+    }
+    
+    .contact .grid {
+        gap: 2rem;
+    }
+}
+
+@media (max-width: 1024px) {
+    .contact .grid {
+        gap: 3rem;
+    }
+}
+
+/* Loading state for form submission */
+.contact button[type="submit"]:disabled {
+    opacity: 0.7;
+    cursor: not-allowed;
+    transform: none;
+}
+
+/* Success/error states for form inputs */
+.contact input.success,
+.contact textarea.success {
+    border-color: #10b981;
+    box-shadow: 0 0 0 3px rgba(16, 185, 129, 0.1);
+}
+
+.contact input.error,
+.contact textarea.error {
+    border-color: #ef4444;
+    box-shadow: 0 0 0 3px rgba(239, 68, 68, 0.1);
+}
