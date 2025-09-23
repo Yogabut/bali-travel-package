@@ -36,7 +36,7 @@ const Counter = ({ target, duration = 4000 }) => {
 
     export const Stats = () => {
     const stats = [
-        { icon: Users, value: "10000+", label: "Happy Travelers" },
+        { icon: Users, value: "1000+", label: "Happy Travelers" },
         { icon: Award, value: "50+", label: "Tour Packages" },
         { icon: MapPin, value: "100+", label: "Destinations" },
         { icon: Heart, value: "99%", label: "Satisfaction Rate" },
