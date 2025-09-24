@@ -12,7 +12,6 @@ export const Hero = () => {
     return (
     <>  
         <section className="relative w-full h-screen overflow-hidden">
-        {/* Background Image */}
         <div
             className="absolute inset-0 bg-cover bg-center transition-all duration-1000 ease-in-out"
             style={{
@@ -23,9 +22,7 @@ export const Hero = () => {
             <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent"></div>
         </div>
 
-        {/* Content Container */}
         <div className="relative z-10 flex h-full">
-            {/* Left Sidebar - Region Selector */}
             <div className="flex flex-col justify-center items-center w-12 bg-black/20 backdrop-blur-sm">
             {regions.map((region, index) => (
                 <button
@@ -36,7 +33,6 @@ export const Hero = () => {
                 }}
                 className="group relative py-8 px-4 w-full flex items-center justify-center"
                 >
-                {/* Vertical Text Container */}
                 <div className="flex flex-col items-center">
                     {region.split(' ').map((word, wordIndex) => (
                     <span
@@ -52,19 +48,18 @@ export const Hero = () => {
                     </span>
                     ))}
                 </div>
-                
-                {/* Active Indicator */}
+
                 {region === activeRegion && (
                     <div className="absolute right-0 top-1/2 transform -translate-y-1/2 w-1 h-16 bg-teal-400 rounded-l-full animate-pulse"></div>
                 )}
                 
-                {/* Hover Effect */}
+
                 <div className="absolute inset-0 bg-teal-500/10 opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-lg"></div>
                 </button>
             ))}
             </div>
 
-            {/* Main Content */}
+
             <div className="flex-1 flex flex-col justify-center px-12 lg:px-20">
             <div className="space-y-8 max-w-3xl">
                 <div className="space-y-4">
@@ -104,7 +99,6 @@ export const Hero = () => {
             </div>
             </div>
 
-            {/* Right Cards */}
             <div className="flex flex-col justify-center pr-8 space-y-6 min-w-[240px]">
             {destinations[activeRegion].map((dest, index) => (
                 <div
@@ -126,10 +120,8 @@ export const Hero = () => {
                     className="h-40 w-56 object-cover transition-transform duration-700 group-hover:scale-125"
                     />
                     
-                    {/* Gradient Overlay */}
                     <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/30 to-transparent"></div>
                     
-                    {/* Content */}
                     <div className="absolute bottom-0 left-0 right-0 p-5">
                     <h3 className="text-white text-base font-bold leading-tight drop-shadow-lg mb-1">
                         {dest.name}
@@ -139,7 +131,6 @@ export const Hero = () => {
                     </p>
                     </div>
                     
-                    {/* Active Indicator */}
                     {selectedDestination.id === dest.id && (
                     <div className="absolute top-4 right-4 flex items-center space-x-2">
                         <div className="w-2 h-2 bg-teal-400 rounded-full animate-pulse"></div>
@@ -147,10 +138,8 @@ export const Hero = () => {
                     </div>
                     )}
                     
-                    {/* Hover Effect */}
                     <div className="absolute inset-0 bg-teal-500/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
                     
-                    {/* Card Number */}
                     <div className="absolute top-4 left-4 text-white/40 font-black text-sm">
                     0{index + 1}
                     </div>
@@ -158,7 +147,6 @@ export const Hero = () => {
                 </div>
             ))}
             
-            {/* Navigation Arrows */}
             <div className="flex justify-center space-x-4 pt-4">
                 <button className="w-10 h-10 rounded-full border border-white/30 hover:border-teal-400 text-white/70 hover:text-teal-400 flex items-center justify-center transition-colors duration-300">
                 <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -174,7 +162,6 @@ export const Hero = () => {
             </div>
         </div>
 
-        {/* Bottom Navigation Dots */}
         <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 flex space-x-3">
             {regions.map((region) => (
             <button

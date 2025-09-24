@@ -24,7 +24,6 @@ export const BookingCard = () => {
 
     return(
         <>
-            {/* Booking Sidebar */}
             <div className="lg:col-span-1">
                 <div className="sticky top-24">
                 <Card className="shadow-xl border-0">

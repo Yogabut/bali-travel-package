@@ -21,13 +21,10 @@ export const Navbar = () => {
     <nav className="fixed top-0 w-full transparent backdrop-blur-sm shadow-sm z-50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16">
-          {/* Logo */}
           <Link to="/" className="flex items-center space-x-2">
             <img src="/src/assets/teavel.png" alt="Logo" className="w-38 h-36" />
           </Link>
 
-
-          {/* Desktop Navigation */}
           <div className="hidden md:block">
             <div className="ml-10 flex items-baseline space-x-8">
               {navItems.map((item) => (
@@ -46,14 +43,12 @@ export const Navbar = () => {
             </div>
           </div>
 
-          {/* Contact Button */}
           <div className="hidden md:block">
             <Button variant="default" className="bg-primary hover:bg-primary-hover font-poppins">
               Contact Us
             </Button>
           </div>
 
-          {/* Mobile menu button */}
           <div className="md:hidden">
             <button
               onClick={() => setIsOpen(!isOpen)}
@@ -64,7 +59,6 @@ export const Navbar = () => {
           </div>
         </div>
 
-        {/* Mobile Navigation */}
         {isOpen && (
           <div className="md:hidden">
             <div className="px-2 pt-2 pb-3 space-y-1 bg-white border-t border-border">
