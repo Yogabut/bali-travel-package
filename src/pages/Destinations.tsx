@@ -16,7 +16,6 @@ export const Destinations = () => {
 
   return (
     <div className="min-h-screen bg-background pt-16">
-      {/* Header Section */}
       <section className="bg-gradient-to-r from-primary to-accent text-white py-16">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h1 className="text-4xl md:text-5xl font-bold font-poppins mb-4">
@@ -28,7 +27,6 @@ export const Destinations = () => {
         </div>
       </section>
 
-      {/* Destinations by Region */}
       <section className="py-12">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           {regions.map((region, regionIndex) => (
@@ -115,7 +113,6 @@ export const Destinations = () => {
         </div>
       </section>
 
-      {/* Map Section Placeholder */}
       <section className="py-16 bg-muted/30">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">

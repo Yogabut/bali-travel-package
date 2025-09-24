@@ -5,7 +5,6 @@ import { testimonials } from "@/data/testimonials";
 export const Testimonials = () => {
     return (
         <>  
-            {/* Testimonials */}
             <section className="py-20 bg-muted/30">
                 <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div className="text-center mb-12">

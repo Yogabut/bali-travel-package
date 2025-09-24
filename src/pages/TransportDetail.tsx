@@ -36,7 +36,6 @@ export const TransportDetail = () => {
 
   return (
     <div className="min-h-screen bg-background pt-16">
-      {/* Hero Section */}
       <section className="relative h-[60vh] overflow-hidden">
         <img 
           src={image} 
@@ -83,15 +82,11 @@ export const TransportDetail = () => {
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
         <div className="grid lg:grid-cols-3 gap-12">
-          {/* Main Content */}
           <div className="lg:col-span-2 space-y-8">
-            {/* Overview */}
             <section>
               <h2 className="text-2xl font-bold text-foreground font-poppins mb-4">Vehicle Overview</h2>
               <p className="text-muted-foreground leading-relaxed text-lg">{description}</p>
             </section>
-
-            {/* Specifications */}
             <section>
               <h2 className="text-2xl font-bold text-foreground font-poppins mb-4">Specifications</h2>
               <Card>
@@ -111,8 +106,6 @@ export const TransportDetail = () => {
                 </CardContent>
               </Card>
             </section>
-
-            {/* Features */}
             <section>
               <h2 className="text-2xl font-bold text-foreground font-poppins mb-4">Key Features</h2>
               <div className="grid md:grid-cols-2 gap-4">
@@ -124,8 +117,6 @@ export const TransportDetail = () => {
                 ))}
               </div>
             </section>
-
-            {/* Includes */}
             <section>
               <h2 className="text-2xl font-bold text-foreground font-poppins mb-4">What's Included</h2>
               <div className="grid md:grid-cols-2 gap-4">
@@ -137,8 +128,6 @@ export const TransportDetail = () => {
                 ))}
               </div>
             </section>
-
-            {/* Terms & Conditions */}
             <section>
               <h2 className="text-2xl font-bold text-foreground font-poppins mb-4">Rental Terms</h2>
               <Card>
@@ -157,7 +146,6 @@ export const TransportDetail = () => {
             </section>
           </div>
 
-          {/* Booking Sidebar */}
           <div className="lg:col-span-1">
             <div className="sticky top-24">
               <Card className="shadow-xl border-0">

@@ -8,7 +8,7 @@ export const Footer = () => {
     <footer className="bg-primary text-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-          {/* Company Info */}
+
           <div className="space-y-4">
             <div className="flex items-center space-x-2">
               <MapPin className="h-8 w-8 text-accent" />
@@ -25,7 +25,7 @@ export const Footer = () => {
             </div>
           </div>
 
-          {/* Quick Links */}
+
           <div className="space-y-4">
             <h3 className="text-lg font-semibold font-poppins">Quick Links</h3>
             <div className="space-y-2">
@@ -37,7 +37,7 @@ export const Footer = () => {
             </div>
           </div>
 
-          {/* Services */}
+
           <div className="space-y-4">
             <h3 className="text-lg font-semibold font-poppins">Our Services</h3>
             <div className="space-y-2">
@@ -49,7 +49,7 @@ export const Footer = () => {
             </div>
           </div>
 
-          {/* Contact Info */}
+
           <div className="space-y-4">
             <h3 className="text-lg font-semibold font-poppins">Contact Us</h3>
             <div className="space-y-3">

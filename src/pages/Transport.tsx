@@ -13,16 +13,15 @@ export const Transport = () => {
   const types = ["All", "Car", "Motorbike"];
 
   const filteredTransport = transport.filter((item) => {
-    const matchesSearch = item.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
-                         item.description.toLowerCase().includes(searchTerm.toLowerCase()) ||
-                         item.category.toLowerCase().includes(searchTerm.toLowerCase());
-    const matchesType = selectedType === "All" || item.type === selectedType;
-    return matchesSearch && matchesType;
+        const matchesSearch = item.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
+        item.description.toLowerCase().includes(searchTerm.toLowerCase()) ||
+        item.category.toLowerCase().includes(searchTerm.toLowerCase());
+        const matchesType = selectedType === "All" || item.type === selectedType;
+        return matchesSearch && matchesType;
   });
 
   return (
     <div className="min-h-screen bg-background pt-16">
-      {/* Header Section */}
       <section className="bg-gradient-to-r from-primary to-accent text-white py-16">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h1 className="text-4xl md:text-5xl font-bold font-poppins mb-4">
@@ -34,11 +33,10 @@ export const Transport = () => {
         </div>
       </section>
 
-      {/* Filters and Search */}
+
       <section className="py-8 bg-white border-b border-border">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex flex-col lg:flex-row gap-6 items-center justify-between">
-            {/* Search */}
             <div className="relative flex-1 max-w-md">
               <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 h-4 w-4 text-muted-foreground" />
               <Input
@@ -49,7 +47,6 @@ export const Transport = () => {
               />
             </div>
 
-            {/* Type Filters */}
             <div className="flex flex-wrap gap-2">
               {types.map((type) => (
                 <Button
@@ -66,7 +63,6 @@ export const Transport = () => {
               ))}
             </div>
 
-            {/* View Toggle */}
             <div className="flex items-center space-x-2">
               <Button
                 variant={viewMode === "grid" ? "default" : "outline"}
@@ -87,7 +83,6 @@ export const Transport = () => {
         </div>
       </section>
 
-      {/* Transport Grid */}
       <section className="py-12">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           {filteredTransport.length === 0 ? (
@@ -120,7 +115,6 @@ export const Transport = () => {
         </div>
       </section>
 
-      {/* Benefits Section */}
       <section className="py-16 bg-muted/30">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
@@ -160,7 +154,6 @@ export const Transport = () => {
         </div>
       </section>
 
-      {/* CTA Section */}
       <section className="py-16">
         <div className="max-w-4xl mx-auto text-center px-4 sm:px-6 lg:px-8">
           <h2 className="text-3xl font-bold text-foreground font-poppins mb-4">

@@ -39,7 +39,6 @@ export const BlogDetail = () => {
 
   return (
     <div className="min-h-screen bg-background pt-16">
-      {/* Hero Section */}
       <section className="relative h-[50vh] overflow-hidden">
         <img 
           src={image} 
