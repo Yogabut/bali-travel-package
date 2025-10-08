@@ -36,49 +36,28 @@ export const TransportDetail = () => {
 
   return (
     <div className="min-h-screen bg-background pt-16">
-      <section className="relative h-[60vh] overflow-hidden">
-        <img 
-          src={image} 
-          alt={name}
-          className="w-full h-full object-cover"
-        />
-        <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent" />
-        <div className="absolute bottom-0 left-0 right-0 p-8">
-          <div className="max-w-7xl mx-auto">
-            <div className="flex items-center space-x-2 mb-4">
-              <span className="bg-secondary text-white px-3 py-1 rounded-full text-sm font-medium flex items-center space-x-1">
-                {type === "Car" ? <Car className="h-4 w-4" /> : <Bike className="h-4 w-4" />}
-                <span>{type}</span>
-              </span>
-              <span className="bg-accent text-white px-3 py-1 rounded-full text-sm font-bold">
-                -{savingsPercent}% OFF
-              </span>
+      <section className="py-10 bg-muted/20 flex justify-center items-center text-center">
+        <div className="max-w-5xl w-full flex flex-col items-center px-4 sm:px-6 lg:px-8">
+          {/* Image Gallery */}
+          <div className="space-y-4 flex flex-col items-center">
+            <div className="rounded-2xl overflow-hidden shadow-md">
+              <img
+                src={image}
+                alt={name}
+                className="w-[900px] h-[500px] object-cover hover:scale-105 transition-transform duration-500"
+              />
             </div>
-            <h1 className="text-4xl md:text-5xl font-bold text-white font-poppins mb-4">
-              {name}
-            </h1>
-            <p className="text-xl text-white/90 mb-4">{category}</p>
-            <div className="flex items-center space-x-6 text-white/90">
-              <div className="flex items-center space-x-2">
-                <Users className="h-5 w-5" />
-                <span>{capacity}</span>
-              </div>
-              <div className="flex items-center space-x-2">
-                <Settings className="h-5 w-5" />
-                <span>{transmission}</span>
-              </div>
-              <div className="flex items-center space-x-2">
-                <Fuel className="h-5 w-5" />
-                <span>{fuel}</span>
-              </div>
-              <div className="flex items-center space-x-2">
-                <Star className="h-5 w-5 fill-yellow-400 text-yellow-400" />
-                <span>4.9 (87 reviews)</span>
-              </div>
+            <div className="grid grid-cols-3 gap-3 max-w-[600px]">
+              <img src={image} alt={name} className="rounded-lg object-cover h-28 w-f cursor-pointer hover:opacity-80" />
+              <img src={image} alt={name} className="rounded-lg object-cover h-28 w-full cursor-pointer hover:opacity-80" />
+              <img src={image} alt={name} className="rounded-lg object-cover h-28 w-full cursor-pointer hover:opacity-80" />
             </div>
           </div>
         </div>
       </section>
+
+
+
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
         <div className="grid lg:grid-cols-3 gap-12">

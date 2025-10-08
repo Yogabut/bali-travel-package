@@ -1,9 +1,12 @@
-import { MapPin, Star, Clock } from "lucide-react";
+import { MapPin, Star, Clock, ArrowRight } from "lucide-react";
+import { useState } from "react";
+import { Link } from "react-router-dom";
 import { destinations } from "@/data/destinations";
 import { Card, CardContent, CardHeader } from "@/components/ui/card";
 
 export const Destinations = () => {
   const regions = Object.keys(destinations);
+  const [selectedRegion, setSelectedRegion] = useState<string>(regions[0]);
 
   const getDifficultyColor = (difficulty: string) => {
     switch (difficulty.toLowerCase()) {
@@ -29,87 +32,109 @@ export const Destinations = () => {
 
       <section className="py-12">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          {regions.map((region, regionIndex) => (
-            <div key={region} className={`mb-16 ${regionIndex !== 0 ? 'border-t border-border pt-16' : ''}`}>
-              <div className="mb-8">
-                <h2 className="text-3xl font-bold text-foreground font-poppins mb-4 flex items-center">
-                  <MapPin className="h-8 w-8 text-primary mr-3" />
+          <div className="mb-12">
+            <div className="flex flex-wrap justify-center gap-4">
+              {regions.map((region) => (
+                <button
+                  key={region}
+                  onClick={() => setSelectedRegion(region)}
+                  className={`px-6 py-3 rounded-lg font-medium transition-all duration-300 ${
+                    selectedRegion === region
+                      ? 'bg-primary text-white shadow-lg scale-105'
+                      : 'bg-white text-foreground hover:bg-primary/10 shadow'
+                  }`}
+                >
                   {region}
-                </h2>
-                <p className="text-lg text-muted-foreground">
-                  Discover the unique attractions and experiences that {region} has to offer.
-                </p>
-              </div>
-
-              <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-                {destinations[region as keyof typeof destinations].map((destination) => (
-                  <Card key={destination.id} className="group overflow-hidden border-0 shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1">
-                    <CardHeader className="p-0 relative">
-                      <div className="relative h-48 overflow-hidden">
-                        <img 
-                          src={destination.image} 
-                          alt={destination.name}
-                          className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
-                        />
-                        <div className="absolute top-4 right-4">
-                          <span className={`px-3 py-1 rounded-full text-sm font-medium text-white ${
-                            destination.difficulty === 'Easy' ? 'bg-accent' :
-                            destination.difficulty === 'Moderate' ? 'bg-secondary' : 'bg-destructive'
-                          }`}>
-                            {destination.difficulty}
-                          </span>
-                        </div>
-                        <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-                      </div>
-                    </CardHeader>
-
-                    <CardContent className="p-6 space-y-4">
-                      <div className="flex items-start justify-between">
-                        <h3 className="text-xl font-bold text-foreground font-poppins group-hover:text-primary transition-colors">
-                          {destination.name}
-                        </h3>
-                        <div className="flex items-center space-x-1">
-                          <Star className="h-4 w-4 fill-yellow-400 text-yellow-400" />
-                          <span className="text-sm font-medium">4.7</span>
-                        </div>
-                      </div>
-
-                      <p className="text-muted-foreground leading-relaxed">
-                        {destination.description}
-                      </p>
-
-                      <div className="space-y-3">
-                        <div className="flex items-center justify-between">
-                          <span className="text-sm font-medium text-foreground">Activities:</span>
-                          <span className={`text-sm font-medium ${getDifficultyColor(destination.difficulty)}`}>
-                            {destination.difficulty}
-                          </span>
-                        </div>
-                        
-                        <div className="flex flex-wrap gap-2">
-                          {destination.activities.map((activity, index) => (
-                            <span 
-                              key={index}
-                              className="px-3 py-1 bg-primary/10 text-primary text-sm rounded-full font-medium"
-                            >
-                              {activity}
-                            </span>
-                          ))}
-                        </div>
-                      </div>
-
-                      <div className="pt-4 border-t border-border">
-                        <div className="flex items-center justify-between">
-                          <span className="text-sm text-muted-foreground">Best time to visit</span>
-                          <span className="text-sm font-medium text-foreground">Apr - Oct</span>
-                        </div>
-                      </div>
-                    </CardContent>
-                  </Card>
-                ))}
-              </div>
+                </button>
+              ))}
             </div>
-          ))}
+          </div>
+
+          <div className="mb-8">
+            <h2 className="text-3xl font-bold text-foreground font-poppins mb-4 flex items-center">
+              <MapPin className="h-8 w-8 text-primary mr-3" />
+              {selectedRegion}
+            </h2>
+            <p className="text-lg text-muted-foreground">
+              Discover the unique attractions and experiences that {selectedRegion} has to offer.
+            </p>
+          </div>
+
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {destinations[selectedRegion as keyof typeof destinations].map((destination) => (
+              <Card key={destination.id} className="group overflow-hidden border-0 shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1">
+                <CardHeader className="p-0 relative">
+                  <div className="relative h-48 overflow-hidden">
+                    <img 
+                      src={destination.image} 
+                      alt={destination.name}
+                      className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+                    />
+                    <div className="absolute top-4 right-4">
+                      <span className={`px-3 py-1 rounded-full text-sm font-medium text-white ${
+                        destination.difficulty === 'Easy' ? 'bg-accent' :
+                        destination.difficulty === 'Moderate' ? 'bg-secondary' : 'bg-destructive'
+                      }`}>
+                        {destination.difficulty}
+                      </span>
+                    </div>
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                  </div>
+                </CardHeader>
+
+                <CardContent className="p-6 space-y-4">
+                  <div className="flex items-start justify-between">
+                    <h3 className="text-xl font-bold text-foreground font-poppins group-hover:text-primary transition-colors">
+                      {destination.name}
+                    </h3>
+                    <div className="flex items-center space-x-1">
+                      <Star className="h-4 w-4 fill-yellow-400 text-yellow-400" />
+                      <span className="text-sm font-medium">4.7</span>
+                    </div>
+                  </div>
+
+                  <p className="text-muted-foreground leading-relaxed">
+                    {destination.subdescription}
+                  </p>
+
+                  <div className="space-y-3">
+                    <div className="flex items-center justify-between">
+                      <span className="text-sm font-medium text-foreground">Activities:</span>
+                      <span className={`text-sm font-medium ${getDifficultyColor(destination.difficulty)}`}>
+                        {destination.difficulty}
+                      </span>
+                    </div>
+                    
+                    <div className="flex flex-wrap gap-2">
+                      {destination.activities.map((activity, index) => (
+                        <span 
+                          key={index}
+                          className="px-3 py-1 bg-primary/10 text-primary text-sm rounded-full font-medium"
+                        >
+                          {activity}
+                        </span>
+                      ))}
+                    </div>
+                  </div>
+
+                  <div className="pt-4 border-t border-border">
+                    <div className="flex items-center justify-between mb-4">
+                      <span className="text-sm text-muted-foreground">Best time to visit</span>
+                      <span className="text-sm font-medium text-foreground">Apr - Oct</span>
+                    </div>
+                    
+                    <Link 
+                      to={`/destinations/${destination.id}`}
+                      className="flex items-center justify-center gap-2 w-full px-4 py-2 bg-primary text-white rounded-lg font-medium hover:bg-primary/90 transition-colors group/button"
+                    >
+                      See Details
+                      <ArrowRight className="h-4 w-4 group-hover/button:translate-x-1 transition-transform" />
+                    </Link>
+                  </div>
+                </CardContent>
+              </Card>
+            ))}
+          </div>
         </div>
       </section>
 

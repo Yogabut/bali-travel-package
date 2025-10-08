@@ -70,8 +70,6 @@ export const TransportCard = ({
         </div>
 
         <p className="text-sm font-medium text-muted-foreground">{category}</p>
-        <p className="text-muted-foreground leading-relaxed">{description}</p>
-
         <div className="grid grid-cols-3 gap-4 text-sm text-muted-foreground">
           <div className="flex items-center space-x-1">
             <Users className="h-4 w-4" />
@@ -85,18 +83,6 @@ export const TransportCard = ({
             <Fuel className="h-4 w-4" />
             <span>{fuel}</span>
           </div>
-        </div>
-
-        <div className="space-y-2">
-          <p className="text-sm font-medium text-foreground">Key Features:</p>
-          <ul className="space-y-1">
-            {features.slice(0, 3).map((feature, index) => (
-              <li key={index} className="text-sm text-muted-foreground flex items-center">
-                <div className="w-1.5 h-1.5 bg-accent rounded-full mr-2 flex-shrink-0" />
-                {feature}
-              </li>
-            ))}
-          </ul>
         </div>
       </CardContent>
 
