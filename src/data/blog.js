@@ -27,10 +27,10 @@ A UNESCO World Heritage site that showcases traditional Balinese irrigation syst
 Located in East Bali, this pristine white sand beach offers tranquility away from the crowds. Perfect for snorkeling with vibrant coral reefs just offshore.
 
 Planning your visit to these hidden gems? Contact us for a customized tour that includes transportation and local guides who know the secret paths to these magical places.`,
-    image: "/src/assets/rice-terraces.jpg",
+    image: "./assets/rice-terraces.jpg",
     author: "Made Sutrisna",
     authorRole: "Local Guide & Travel Expert",
-    authorImage: "/src/assets/hero-bali.jpg",
+    authorImage: "./assets/hero-bali.jpg",
     publishedAt: "2024-03-15",
     readTime: "8 min read",
     category: "Travel Guide",
@@ -75,10 +75,10 @@ Don't dismiss the wet season entirely - it has its own charm:
 ### Photography: April - October for landscapes, December - March for dramatic skies
 
 Ready to plan your perfect Bali getaway? Contact our travel experts for personalized recommendations based on your travel dates and interests.`,
-    image: "/src/assets/beach-romance.jpg",
+    image: "./assets/beach-romance.jpg",
     author: "Kadek Wirawan",
     authorRole: "Weather & Climate Specialist",
-    authorImage: "/src/assets/temple-package.jpg",
+    authorImage: "./assets/temple-package.jpg",
     publishedAt: "2024-03-10", 
     readTime: "6 min read",
     category: "Travel Tips",
@@ -144,10 +144,10 @@ Each temple celebrates its anniversary with elaborate ceremonies featuring tradi
 - Respect photography restrictions
 
 Experience authentic Balinese culture with our cultural tour packages, designed in collaboration with local communities to ensure respectful and meaningful interactions.`,
-    image: "/src/assets/temple-package.jpg",
+    image: "./assets/temple-package.jpg",
     author: "Ni Luh Sari",
     authorRole: "Cultural Heritage Expert",
-    authorImage: "/src/assets/beach-romance.jpg",
+    authorImage: "./assets/beach-romance.jpg",
     publishedAt: "2024-03-05",
     readTime: "10 min read",
     category: "Culture",
@@ -212,10 +212,10 @@ Balinese food can be quite spicy. Don't hesitate to ask for "tidak pedas" (not s
 Stick to busy establishments with high turnover, ensure meat is well-cooked, and drink bottled water.
 
 Join our culinary tours to explore local markets, visit traditional kitchens, and learn cooking techniques from experienced Balinese chefs.`,
-    image: "/src/assets/hero-bali.jpg",
+    image: "./assets/hero-bali.jpg",
     author: "Wayan Kusuma",
     authorRole: "Culinary Expert & Chef",
-    authorImage: "/src/assets/rice-terraces.jpg",
+    authorImage: "/./assets/rice-terraces.jpg",
     publishedAt: "2024-02-28",
     readTime: "7 min read",
     category: "Food & Cuisine",
@@ -285,10 +285,10 @@ Explore Bali's hidden cave systems, including the mystical Goa Gajah (Elephant C
 - Check specific activity seasons (e.g., surfing swells)
 
 Ready for your next adventure? Our expert guides ensure safe, exciting experiences while showing you Bali's most spectacular natural wonders.`,
-    image: "/src/assets/rice-terraces.jpg",
+    image: "./assets/rice-terraces.jpg",
     author: "Putu Agus",
     authorRole: "Adventure Guide & Safety Expert",
-    authorImage: "/src/assets/hero-bali.jpg",
+    authorImage: "./assets/hero-bali.jpg",
     publishedAt: "2024-02-20",
     readTime: "9 min read",
     category: "Adventure",
