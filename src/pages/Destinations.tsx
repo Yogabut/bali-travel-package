@@ -34,7 +34,7 @@ export const Destinations = () => {
 
   return (
     <div className="min-h-screen bg-background pt-16">
-      <section className="bg-gradient-to-r from-primary to-accent text-white py-16">
+      <section className="text-gray-800 py-16">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h1
             className="text-4xl md:text-5xl font-bold font-poppins mb-4"
@@ -43,7 +43,7 @@ export const Destinations = () => {
             Bali Destinations
           </h1>
           <p
-            className="text-xl text-white/90 max-w-2xl mx-auto"
+            className="text-xl text-gray-500 max-w-2xl mx-auto"
             data-aos="fade-up"
             data-aos-delay="100"
           >
@@ -52,7 +52,7 @@ export const Destinations = () => {
         </div>
       </section>
 
-      <section className="py-12">
+      <section className="py-6">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="mb-12">
             <div

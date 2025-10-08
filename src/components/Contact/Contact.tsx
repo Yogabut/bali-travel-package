@@ -70,8 +70,7 @@ export const CTA = () => {
                         </h2>
                         <div className="w-20 h-1 bg-gradient-to-r from-[#304667] to-[#6bb8ff] rounded-full mx-auto mb-2"></div>
                         <p className="text-xl text-gray-700 max-w-3xl mx-auto leading-relaxed">
-                            Ready to start your brand grwoth? Contact us today for a consultation 
-                            and let's bring your vision to life.
+                            Whether you have a question about our services, pricing, or anything else, our team is ready to answer all your questions.
                         </p>
                     </div>
 
@@ -115,7 +114,7 @@ export const CTA = () => {
                                         name="projectType"
                                         value={formData.projectType}
                                         onChange={handleInputChange}
-                                        placeholder="e.g., Web Development, Design & Visual, Digital Marketing ..." 
+                                        placeholder="e.g. Family, Honeymoon, Adventure..." 
                                         className="w-full px-4 py-3 bg-white/10 border border-gray-600/50 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:border-[#57eedd] focus:ring-2 focus:ring-yellow-400/20 transition-all duration-300"
                                     />
                                 </div>
@@ -126,7 +125,7 @@ export const CTA = () => {
                                         name="message"
                                         value={formData.message}
                                         onChange={handleInputChange}
-                                        placeholder="Tell us about your project, budget, timeline, and any specific requirements..."
+                                        placeholder="Tell us about your plan, budget, timeline, and any specific requirements..."
                                         className="w-full px-4 py-3 bg-white/10 border border-gray-600/50 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:border-[#57eedd] focus:ring-2 focus:ring-yellow-400/20 transition-all duration-300 resize-none"
                                         required
                                     ></textarea>

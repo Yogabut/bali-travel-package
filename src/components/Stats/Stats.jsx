@@ -1,7 +1,7 @@
 import { MapPin, Users, Award, Heart } from "lucide-react";
 import { useEffect, useState } from "react";
 
-const Counter = ({ target, duration = 4000 }) => {
+const Counter = ({ target, duration = 1000 }) => {
     const [count, setCount] = useState(0);
 
     const suffix = target.includes("%") ? "%" : "+";
@@ -52,7 +52,7 @@ const Counter = ({ target, duration = 4000 }) => {
                     <stat.icon className="h-8 w-8 text-primary" />
                 </div>
                 <div className="text-3xl font-bold text-primary font-poppins mb-2">
-                    <Counter target={stat.value} duration={2000} />
+                    <Counter target={stat.value} duration={10000} />
                 </div>
                 <div className="text-muted-foreground font-medium">
                     {stat.label}

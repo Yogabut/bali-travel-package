@@ -5,6 +5,7 @@ import { Input } from "@/components/ui/input";
 import { Card } from "@/components/ui/card";
 import { packages } from "@/data/packages";
 import { PackageCard } from "@/components/ui/package-card";
+import { ChatBotPackageCard } from "@/components/ui/chatBotPackageCard";
 
 interface Message {
   id: string;
@@ -186,11 +187,11 @@ export const Chatbot = () => {
                 
                 {/* Package Recommendations */}
                 {message.sender === 'bot' && message.recommendedPackages && message.recommendedPackages.length > 0 && (
-                  <div className="ml-11 mt-4 space-y-2">
-                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-2">
+                  <div className="ml-7 mt-4 space-y-2">
+                    <div className="grid grid-cols-1 gap-2">
                       {message.recommendedPackages.map((pkg) => (
                         <div key={pkg.id} className="transform scale-95">
-                          <PackageCard {...pkg} />
+                          <ChatBotPackageCard {...pkg} />
                         </div>
                       ))}
                     </div>

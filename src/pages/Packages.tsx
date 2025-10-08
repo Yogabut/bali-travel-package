@@ -21,7 +21,6 @@ export const Packages = () => {
     });
   }, []);
 
-  // Refresh AOS when filters change
   useEffect(() => {
     AOS.refresh();
   }, [searchTerm, selectedCategory, viewMode]);
@@ -30,7 +29,7 @@ export const Packages = () => {
 
   const filteredPackages = packages.filter((pkg) => {
     const matchesSearch = pkg.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
-                         pkg.description.toLowerCase().includes(searchTerm.toLowerCase());
+                          pkg.description.toLowerCase().includes(searchTerm.toLowerCase());
     const matchesCategory = selectedCategory === "All" || pkg.category === selectedCategory;
     return matchesSearch && matchesCategory;
   });
@@ -38,7 +37,7 @@ export const Packages = () => {
   return (
     <div className="min-h-screen bg-background pt-16">
       {/* Header Section */}
-      <section className="bg-gradient-to-r from-primary to-accent text-white py-16">
+      <section className="text-gray-800 py-16">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h1
             className="text-4xl md:text-5xl font-bold font-poppins mb-4"
@@ -47,7 +46,7 @@ export const Packages = () => {
             Tour Packages
           </h1>
           <p
-            className="text-xl text-white/90 max-w-2xl mx-auto"
+            className="text-xl text-gray-500 max-w-2xl mx-auto"
             data-aos="fade-up"
             data-aos-delay="100"
           >
@@ -57,7 +56,7 @@ export const Packages = () => {
       </section>
 
       {/* Filters and Search */}
-      <section className="py-8 bg-white border-b border-border">
+      <section className="py-8 border-border">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex flex-col lg:flex-row gap-6 items-center justify-between">
             {/* Search */}

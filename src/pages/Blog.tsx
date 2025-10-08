@@ -19,7 +19,7 @@ export const Blog = () => {
     });
   }, []);
 
-  // Refresh AOS when filters change
+
   useEffect(() => {
     AOS.refresh();
   }, [searchTerm, selectedCategory]);
@@ -38,7 +38,7 @@ export const Blog = () => {
     <div className="min-h-screen bg-background pt-16" data-aos="fade">
       {/* Header Section */}
       <section 
-        className="bg-gradient-to-r from-primary to-accent text-white py-16"
+        className="text-gray-800 py-16"
         data-aos="fade-down"
       >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
@@ -50,7 +50,7 @@ export const Blog = () => {
             Travel Blog
           </h1>
           <p 
-            className="text-xl text-white/90 max-w-2xl mx-auto"
+            className="text-xl text-gray-500 max-w-2xl mx-auto"
             data-aos="fade-up"
             data-aos-delay="200"
           >
@@ -59,49 +59,9 @@ export const Blog = () => {
         </div>
       </section>
 
-      {/* Featured Posts */}
-      {featuredPosts.length > 0 && (
-        <section 
-          className="py-12 bg-white"
-          data-aos="fade-up"
-        >
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div 
-              className="flex items-center space-x-2 mb-8"
-              data-aos="fade-right"
-              data-aos-delay="100"
-            >
-              <Tag 
-                className="h-6 w-6 text-primary"
-                data-aos="zoom-in"
-                data-aos-delay="150"
-              />
-              <h2 
-                className="text-2xl font-bold text-foreground font-poppins"
-                data-aos="fade-left"
-                data-aos-delay="200"
-              >
-                Featured Articles
-              </h2>
-            </div>
-            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-              {featuredPosts.map((post, index) => (
-                <div
-                  key={post.id}
-                  data-aos="fade-up"
-                  data-aos-delay={index * 100}
-                >
-                  <BlogCard {...post} />
-                </div>
-              ))}
-            </div>
-          </div>
-        </section>
-      )}
-
       {/* Filters and Search */}
       <section 
-        className="py-8 bg-muted/30 border-b border-border"
+        className="py-8 border-border"
         data-aos="fade-up"
       >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
