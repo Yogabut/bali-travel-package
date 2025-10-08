@@ -9,7 +9,7 @@ export const transport = [
     fuel: "Petrol",
     pricePerDay: 45,
     originalPrice: 60,
-    image: "./assets/hero-bali.jpg",
+    image: "/assets/hero-bali.jpg",
     description: "Perfect family car for exploring Bali with comfort and space for up to 7 people.",
     features: [
       "Air Conditioning",
@@ -37,7 +37,7 @@ export const transport = [
     fuel: "Petrol",
     pricePerDay: 8,
     originalPrice: 12,
-    image: "./assets/rice-terraces.jpg",
+    image: "/assets/rice-terraces.jpg",
     description: "Popular automatic scooter, perfect for couples and easy navigation through Bali's streets.",
     features: [
       "Automatic Transmission",
@@ -65,7 +65,7 @@ export const transport = [
     fuel: "Petrol",
     pricePerDay: 40,
     originalPrice: 55,
-    image: "./assets/temple-package.jpg",
+    image: "/assets/temple-package.jpg",
     description: "Spacious MPV ideal for large groups and families with excellent fuel economy.",
     features: [
       "Spacious Interior",
@@ -93,7 +93,7 @@ export const transport = [
     fuel: "Petrol",
     pricePerDay: 12,
     originalPrice: 18,
-    image: "./assets/beach-romance.jpg",
+    image: "/assets/beach-romance.jpg",
     description: "Premium scooter with modern features and superior comfort for city touring.",
     features: [
       "Anti-lock Braking System",
@@ -121,7 +121,7 @@ export const transport = [
     fuel: "Diesel",
     pricePerDay: 65,
     originalPrice: 85,
-    image: "./assets/hero-bali.jpg",
+    image: "/assets/hero-bali.jpg",
     description: "Premium SUV perfect for large groups wanting comfort and reliability.",
     features: [
       "Premium Interior",
@@ -149,7 +149,7 @@ export const transport = [
     fuel: "Petrol",
     pricePerDay: 15,
     originalPrice: 22,
-    image: "./assets/rice-terraces.jpg",
+    image: "/assets/rice-terraces.jpg",
     description: "Stylish and fuel-efficient premium scooter with advanced technology features.",
     features: [
       "Keyless Ignition",

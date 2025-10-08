@@ -6,7 +6,7 @@ export const packages = [
     duration: "3 Days 2 Nights",
     price: 299,
     originalPrice: 399,
-    image: "./assets/temple-package.jpg",
+    image: "/assets/temple-package.jpg",
     description: "Discover the spiritual heart of Bali with visits to ancient temples, traditional villages, and cultural performances.",
     highlights: [
       "Visit Tanah Lot & Uluwatu Temple",
@@ -29,7 +29,7 @@ export const packages = [
     duration: "5 Days 4 Nights",
     price: 799,
     originalPrice: 999,
-    image: "./assets/beach-romance.jpg",
+    image: "/assets/beach-romance.jpg",
     description: "Perfect romantic getaway with private dinners, couples spa treatments, and stunning sunset views.",
     highlights: [
       "Private beachfront villa",
@@ -54,7 +54,7 @@ export const packages = [
     duration: "4 Days 3 Nights",
     price: 549,
     originalPrice: 699,
-    image: "./assets/rice-terraces.jpg",
+    image: "/assets/rice-terraces.jpg",
     description: "Thrilling outdoor adventures including volcano hiking, white water rafting, and jungle trekking.",
     highlights: [
       "Mount Batur sunrise hike",
